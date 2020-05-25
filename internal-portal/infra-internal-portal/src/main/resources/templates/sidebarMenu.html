@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+</head>
+<body>
+	<div class="sidebar-menu">
+		<header class="logo1">
+			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
+			</a>
+		</header>
+		<div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
+		<div class="menu">
+			<ul id="menu">
+				<li><a th:href="@{/home}"><i class="fa fa-home"></i> <span>Home</span><div class="clearfix"></div></a></li>
+
+				<li><a th:href="@{/manage-users}"><i class="fa fa-users"></i> 
+					<span>Manage Users</span><div class="clearfix"></div></a></li>
+
+				<li sec:authorize="hasAuthority('MANAGER')"><a th:href="@{/manage-leaves}"><i class="fa fa-calendar-check-o"></i>
+						<span>Manage Leaves</span><div class="clearfix"></div></a></li>
+
+				<li><a th:href="@{/apply-leave}"><i class="fa fa-calendar-plus-o"></i> <span>Apply Leave</span>
+					<div class="clearfix"></div></a></li>
+					
+				<li sec:authorize="hasAuthority('MANAGER')"><a th:href="@{/apply-yearly-time-off}"><i class="fa fa-calendar-plus-o"></i>
+					 <span>Apply Yearly Time Off</span><div class="clearfix"></div></a></li>
+					 
+				<li sec:authorize="hasAuthority('MANAGER')"><a th:href="@{/create-vacationtype}"><i class="fa fa-calendar-plus-o"></i>
+					 <span>Create New Vacantion</span><div class="clearfix"></div></a></li>
+
+				<li><a th:href="@{/my-leaves}"><i class="fa fa-calendar-check-o"></i> <span>My Leaves</span><div class="clearfix"></div></a></li>
+
+				<li><a th:href="@{/change-password}"><i class="fa fa-key"></i><span>Change Password</span><div class="clearfix"></div></a></li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</body>

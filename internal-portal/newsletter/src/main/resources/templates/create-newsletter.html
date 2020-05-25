@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Create Newsletter</title>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	crossorigin="anonymous">
+	
+</script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous">
+	
+</script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous">
+	
+</script>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+
+<!-- Custom styles for this template -->
+<link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}">Newsletter Module</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/newsletter}">Create Newsletter</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<h1>Newsletter Form</h1>
+		<hr />
+		<form th:action="@{/newsletter}" method="post" id="newsletterForm"
+			th:object="${newsletterDTO}">
+			<div class="form-group">
+				<label for="Title">Title</label>
+				<textarea type="text" class="form-control" id="idTitle" rows="1"
+					th:field="*{title}"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="Image">Image</label>
+				<textarea type="text" class="form-control" id="idImage" rows="1"
+					th:field="*{image}"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="Content">Content</label>
+				<textarea class="form-control" id="idContent" rows="5"
+					th:field="*{content}"></textarea>
+			</div>
+			<input type="submit" class="btn btn-primary" value="Submit Form">
+		</form>
+
+	</div>
+
+	<script src="js/summernote.js"></script>
+
+</body>
+</html>

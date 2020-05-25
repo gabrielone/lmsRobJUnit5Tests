@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>All Employees</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+    <div class="container my-2">
+    <div class="card">
+    <div class="card-body">
+        <div th:switch="${claims}" class="container my-5">
+            <p class="my-5">
+              
+            </p>
+            <div class="col-md-10">
+                <h2 th:case="null">No record found !!</h2>
+                <div th:case="*">
+                    <table class="table table-striped table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th>Employee ID:</th>
+                                <th>Employee Name:</th>
+                                <th>Claim Type:</th>
+                                <th>Email:</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                <th>Status</th>
+                           
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="claim : ${claims}">
+                            <td th:text="${claim.id}"></td>
+                                <td th:text="${claim.firstName}"></td>
+                                <td th:text="${claim.lastName}"></td>
+                                <td th:text="${claim.email}"></td>
+                              
+                            <!--      <td th:text="${claim.status}"></td>   
+                      <!--         <td th:text="${employee.profilePicPath}"></td>   -->    
+                                   
+                                      
+                                   
+                                <td>
+                                    <a th:href="@{/editareclaimstatus/{id}(id=${claim.id})}" class="btn btn-primary">
+                                        <i class="fas fa-user-edit ml-2"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a th:href="@{/deleted/{id}(id=${claim.id})}" class="btn btn-primary">
+                                        <i class="fas fa-user-times ml-2"></i>
+                                    </a>
+                                </td>
+                                
+                                   <td th:text="${claim.status}"></td>  
+                                
+                 
+                                 <!--  <td><a>
+                                 <div id="parentElement" class="row text-right">
+    <label>Add another input line</label>
+    <button onclick="addInputLine()" name="addInputLine" class="btn btn-default" ><span class="fa fa-plus"></span></button>
+</div>
+                                 
+                                 </a></td>-->
+                            
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    
+    
+  <!--  	 <div class="sidebar-menu">
+					<header class="logo1">
+						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
+					</header>
+						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                           <div class="menu">
+									<ul id="menu" >
+										
+										<li sec:authorize="hasAuthority('MANAGER')"><a th:href="@{/list-claims}"><i class="fa fa-users"></i> <span>List Claims</span><div class="clearfix"></div></a></li>
+										
+									
+										
+								  	</ul>
+							</div>
+				</div>  --> 
+    
+    
+    
+    
+    <script>
+function addInputLine() {
+var node = document.createElement("input");                 // Create an <input> node                         
+document.getElementById("parentElement").appendChild(node);     // Append it to the parent
+}
+</script>
+    
+    
+</body>
+
+</html>
